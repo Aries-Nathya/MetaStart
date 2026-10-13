@@ -1,0 +1,29 @@
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python cache & artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+build/
+dist/
+*.egg-info/
+
+# Pytest / testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# macOS / IDE
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Streamlit credentials / logs
+.streamlit/
