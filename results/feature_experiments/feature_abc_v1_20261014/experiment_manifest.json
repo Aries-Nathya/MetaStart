@@ -1,0 +1,96 @@
+{
+  "experiment_id": "feature_abc_v1_20261014",
+  "created_utc": "2026-10-14T10:22:34.934643+00:00",
+  "benchmark_input_sha256": "a516ebd1c229e0586dd36692f4efd99d0da58ff629c6bd8d6b36bdee5f162682",
+  "provenance_registry_sha256": "d8f6f0961bad62923287cb556167ab7f2c87818a03dc701410264a73c6793bf0",
+  "frozen_baseline_model_sha256": "69ef3adf728f330573182994e70e6e891349f8a2887f434e9ac1f4f1a6cac55f",
+  "frozen_baseline_report_sha256": "8f56992235ab553029ebeb46ed6ffb071e1dcf1093424784f9bcae223af2121f",
+  "eligible_identities": [
+    "breast_cancer",
+    "digits",
+    "iris",
+    "synthetic_42",
+    "synthetic_43",
+    "synthetic_44",
+    "synthetic_local_1200x20_four_class",
+    "synthetic_local_2500x60_three_class",
+    "synthetic_local_300x6_imbalanced",
+    "wine"
+  ],
+  "excluded_identities": [
+    "openml_11_balance_scale",
+    "openml_54_vehicle"
+  ],
+  "algorithms": [
+    "Logistic Regression",
+    "Decision Tree",
+    "Random Forest",
+    "SVM",
+    "k-Nearest Neighbors"
+  ],
+  "records": 50,
+  "folding": "leave one complete dataset identity out",
+  "full_dataset_profiles": true,
+  "random_trials": 1000,
+  "bootstrap_replicates": 5000,
+  "bootstrap_intervals": "descriptive; ten identities include six synthetic datasets",
+  "baseline_reproduced": true,
+  "feature_sets": {
+    "A": {
+      "name": "original9",
+      "features": [
+        "n_rows",
+        "n_features",
+        "n_numeric",
+        "n_categorical",
+        "missing_ratio",
+        "n_classes",
+        "imbalance_ratio",
+        "mean_feature_mean",
+        "mean_feature_std"
+      ]
+    },
+    "B": {
+      "name": "numeric15",
+      "features": [
+        "n_rows",
+        "n_features",
+        "n_numeric",
+        "n_categorical",
+        "missing_ratio",
+        "n_classes",
+        "imbalance_ratio",
+        "mean_feature_mean",
+        "mean_feature_std",
+        "normalized_class_entropy",
+        "log10_samples_per_feature",
+        "median_abs_numeric_skewness",
+        "median_abs_numeric_excess_kurtosis",
+        "mean_abs_numeric_correlation",
+        "fraction_numeric_pairs_abs_corr_ge_0_8"
+      ]
+    },
+    "C": {
+      "name": "full17",
+      "features": [
+        "n_rows",
+        "n_features",
+        "n_numeric",
+        "n_categorical",
+        "missing_ratio",
+        "n_classes",
+        "imbalance_ratio",
+        "mean_feature_mean",
+        "mean_feature_std",
+        "normalized_class_entropy",
+        "log10_samples_per_feature",
+        "median_abs_numeric_skewness",
+        "median_abs_numeric_excess_kurtosis",
+        "mean_abs_numeric_correlation",
+        "fraction_numeric_pairs_abs_corr_ge_0_8",
+        "mean_normalized_categorical_entropy",
+        "mean_categorical_cardinality"
+      ]
+    }
+  }
+}

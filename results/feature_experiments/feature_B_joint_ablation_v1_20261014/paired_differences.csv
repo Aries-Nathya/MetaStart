@@ -1,0 +1,16 @@
+contrast,metric,mean_difference_ablation_minus_B,bootstrap_95ci_low,bootstrap_95ci_high,n_independent_identities,model_seed_count
+without_skewness_and_kurtosis-B,meta_regret,-0.0002639217057704129,-0.0022929171977625253,0.0013086766388985538,10,10
+without_skewness_and_kurtosis-B,meta_top1_hit,2.7755575615628915e-18,-0.030000000000000006,0.03000000000000001,10,10
+without_skewness_and_kurtosis-B,meta_top3_hit,-0.05,-0.3,0.15,10,10
+without_skewness_and_kurtosis-B,prediction_mae,0.0024807574720554226,-0.01054495545519884,0.013709549369393831,10,10
+without_skewness_and_kurtosis-B,ranking_spearman,-0.03374021647914846,-0.12874671106716973,0.030519567041703066,10,10
+without_both_correlation_features-B,meta_regret,0.0004043662791159159,-0.0023509487513530395,0.0035640475887007876,10,10
+without_both_correlation_features-B,meta_top1_hit,-0.1,-0.31,0.020000000000000007,10,10
+without_both_correlation_features-B,meta_top3_hit,-0.01,-0.030000000000000006,0.0,10,10
+without_both_correlation_features-B,prediction_mae,-0.0017097873437135493,-0.00629597360545315,0.0012569313144855242,10,10
+without_both_correlation_features-B,ranking_spearman,-0.0500519567041703,-0.1260519567041703,-0.0020519567041702965,10,10
+without_all_four-B,meta_regret,-0.0030279006627779302,-0.01352983887162892,0.003501271603607826,10,10
+without_all_four-B,meta_top1_hit,-0.029999999999999992,-0.25,0.16000000000000003,10,10
+without_all_four-B,meta_top3_hit,-0.05,-0.3,0.15,10,10
+without_all_four-B,prediction_mae,0.0011593846874223517,-0.01300776868444782,0.014439021099299803,10,10
+without_all_four-B,ranking_spearman,-0.07574021647914846,-0.18648692754631818,0.012044650319342213,10,10

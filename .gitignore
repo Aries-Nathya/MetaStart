@@ -27,3 +27,6 @@ htmlcov/
 
 # Streamlit credentials / logs
 .streamlit/
+
+# Large test datasets
+data/test_datasets/

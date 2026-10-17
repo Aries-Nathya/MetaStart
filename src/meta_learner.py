@@ -13,6 +13,7 @@ from sklearn.preprocessing import OneHotEncoder
 
 from src.benchmark import ALGORITHM_NAMES, ROOT
 from src.dataset_profiler import META_FEATURES
+from src.provenance import filter_trainable_records
 
 
 def build_meta_model(random_state: int = 42):
@@ -27,7 +28,7 @@ def build_meta_model(random_state: int = 42):
 
 def train_meta_model(data_path: str | Path = ROOT / "data/meta_dataset.csv",
                      artifact_path: str | Path = ROOT / "models/meta_model.joblib"):
-    data = pd.read_csv(data_path)
+    data = filter_trainable_records(pd.read_csv(data_path))
     if data.empty or data["dataset"].nunique() < 4:
         raise ValueError("Benchmark at least four distinct datasets before training.")
     required = set(META_FEATURES + ["dataset", "algorithm", "macro_f1"])

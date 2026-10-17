@@ -18,12 +18,19 @@ from sklearn.metrics import mean_absolute_error
 from src.benchmark import ROOT
 from src.dataset_profiler import META_FEATURES
 from src.meta_learner import build_meta_model
+from src.provenance import filter_trainable_records
 
 
 def evaluate_meta_learning(data_path: str | Path = ROOT / "data/meta_dataset.csv",
                            results_dir: str | Path = ROOT / "results",
                            random_trials: int = 1000):
-    data = pd.read_csv(data_path)
+    """Evaluate selection on entirely held-out identities.
+
+    Benchmark meta-features were profiled from each complete dataset before
+    cross-validation. This estimates identity-level algorithm ranking; it is
+    not an unbiased held-out-row estimate and should not be described as one.
+    """
+    data = filter_trainable_records(pd.read_csv(data_path))
     results_dir = Path(results_dir)
     results_dir.mkdir(parents=True, exist_ok=True)
     if data["dataset"].nunique() < 4:
@@ -78,8 +85,9 @@ def evaluate_meta_learning(data_path: str | Path = ROOT / "data/meta_dataset.csv
                     "random_regret", "meta_top1_hit", "meta_top3_hit", "prediction_mae",
                     "ranking_spearman", "meta_minus_historical_f1", "meta_minus_fixed_f1",
                     "meta_minus_random_f1"]
-    # Bootstrap over held-out dataset identities. These intervals are descriptive
-    # with only seven datasets; they are not evidence from a large test sample.
+    # Bootstrap over held-out dataset identities. These intervals are descriptive:
+    # ten eligible identities include six synthetic datasets, so they are not
+    # evidence from a large independent real-world test sample.
     rng = np.random.default_rng(2026)
     summary_records = []
     for column in summary_cols:

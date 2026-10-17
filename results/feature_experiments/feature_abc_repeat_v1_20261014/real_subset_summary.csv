@@ -1,0 +1,13 @@
+experiment,metric,mean_across_real_identities,n_real_identities,model_seed_count
+A,meta_regret,0.015123151687336002,4,10
+A,meta_top1_hit,0.025,4,10
+A,meta_top3_hit,0.525,4,10
+B,meta_regret,0.010451716709494055,4,10
+B,meta_top1_hit,0.275,4,10
+B,meta_top3_hit,0.775,4,10
+C,meta_regret,0.01154228057524285,4,10
+C,meta_top1_hit,0.25,4,10
+C,meta_top3_hit,0.775,4,10
+D,meta_regret,0.01154228057524285,4,10
+D,meta_top1_hit,0.25,4,10
+D,meta_top3_hit,0.775,4,10

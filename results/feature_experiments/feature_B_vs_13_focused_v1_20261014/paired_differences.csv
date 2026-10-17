@@ -1,0 +1,6 @@
+contrast,metric,mean_difference_ablation_minus_B,bootstrap_95ci_low,bootstrap_95ci_high,n_independent_identities,model_seed_count
+without_skewness_and_kurtosis-B,meta_regret,-0.0002766062590146407,-0.0013644908871104679,0.0004528833918887833,10,51
+without_skewness_and_kurtosis-B,meta_top1_hit,0.005882352941176472,0.0,0.017647058823529415,10,51
+without_skewness_and_kurtosis-B,meta_top3_hit,-0.050980392156862744,-0.3,0.14705882352941177,10,51
+without_skewness_and_kurtosis-B,prediction_mae,0.00204994293498018,-0.01176003845577504,0.01355271582155571,10,51
+without_skewness_and_kurtosis-B,ranking_spearman,-0.02503942792073378,-0.12039215686274511,0.037626814277014344,10,51

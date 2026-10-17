@@ -1,0 +1,7 @@
+dataset,source,source_id,source_name,license_status,status,error
+openml_31_credit_g,OpenML,31,credit-g,not reported,failed,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+openml_37_diabetes,OpenML,37,diabetes,not reported,failed,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+openml_54_vehicle,OpenML,54,vehicle,not reported,failed,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+openml_44_spambase,OpenML,44,spambase,not reported,failed,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+openml_1464_blood_transfusion_service_center,OpenML,1464,blood-transfusion-service-center,not reported,failed,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>"
+openml_11_balance_scale,OpenML,11,balance-scale,not reported,failed,"URLError: <urlopen error [Errno 8] nodename nor servname provided, or not known>"

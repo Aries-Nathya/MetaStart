@@ -1,0 +1,13 @@
+contrast,metric,mean_difference,bootstrap_95ci_low,bootstrap_95ci_high,n_independent_identities
+B-A,meta_regret,-0.0034613439368293723,-0.007132940855088719,-0.0005774263246581989,10
+B-A,meta_top1_hit,0.12,0.0,0.30000000000000004,10
+B-A,meta_top3_hit,0.1,0.0,0.3,10
+C-A,meta_regret,-0.0014323484448372612,-0.0038592456770393134,0.00041712246270659214,10
+C-A,meta_top1_hit,0.09,0.0,0.27,10
+C-A,meta_top3_hit,0.1,0.0,0.3,10
+D-B,meta_regret,0.0020289954919921116,0.0,0.0052145353833773,10
+D-B,meta_top1_hit,-0.03,-0.06999999999999999,0.0,10
+D-B,meta_top3_hit,0.0,0.0,0.0,10
+D-C,meta_regret,0.0,0.0,0.0,10
+D-C,meta_top1_hit,0.0,0.0,0.0,10
+D-C,meta_top3_hit,0.0,0.0,0.0,10

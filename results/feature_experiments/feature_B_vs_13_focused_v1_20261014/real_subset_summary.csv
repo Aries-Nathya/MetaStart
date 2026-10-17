@@ -1,0 +1,7 @@
+configuration,metric,mean_across_real_identities,n_real_identities
+B,meta_regret,0.01154313990835187,4
+B,meta_top1_hit,0.2549019607843137,4
+B,meta_top3_hit,0.7990196078431373,4
+without_skewness_and_kurtosis,meta_regret,0.01202277863264806,4
+without_skewness_and_kurtosis,meta_top1_hit,0.2549019607843137,4
+without_skewness_and_kurtosis,meta_top3_hit,0.6715686274509804,4

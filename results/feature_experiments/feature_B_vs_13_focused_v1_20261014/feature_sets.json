@@ -1,0 +1,34 @@
+{
+  "B": [
+    "n_rows",
+    "n_features",
+    "n_numeric",
+    "n_categorical",
+    "missing_ratio",
+    "n_classes",
+    "imbalance_ratio",
+    "mean_feature_mean",
+    "mean_feature_std",
+    "normalized_class_entropy",
+    "log10_samples_per_feature",
+    "median_abs_numeric_skewness",
+    "median_abs_numeric_excess_kurtosis",
+    "mean_abs_numeric_correlation",
+    "fraction_numeric_pairs_abs_corr_ge_0_8"
+  ],
+  "without_skewness_and_kurtosis": [
+    "n_rows",
+    "n_features",
+    "n_numeric",
+    "n_categorical",
+    "missing_ratio",
+    "n_classes",
+    "imbalance_ratio",
+    "mean_feature_mean",
+    "mean_feature_std",
+    "normalized_class_entropy",
+    "log10_samples_per_feature",
+    "mean_abs_numeric_correlation",
+    "fraction_numeric_pairs_abs_corr_ge_0_8"
+  ]
+}

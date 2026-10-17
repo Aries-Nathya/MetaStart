@@ -1,0 +1,142 @@
+{
+  "experiment_id": "feature_abc_repeat_v1_20261014",
+  "benchmark_input_sha256": "a516ebd1c229e0586dd36692f4efd99d0da58ff629c6bd8d6b36bdee5f162682",
+  "provenance_registry_sha256": "d8f6f0961bad62923287cb556167ab7f2c87818a03dc701410264a73c6793bf0",
+  "frozen_baseline_report_sha256": "8f56992235ab553029ebeb46ed6ffb071e1dcf1093424784f9bcae223af2121f",
+  "eligible_identities": [
+    "breast_cancer",
+    "digits",
+    "iris",
+    "synthetic_42",
+    "synthetic_43",
+    "synthetic_44",
+    "synthetic_local_1200x20_four_class",
+    "synthetic_local_2500x60_three_class",
+    "synthetic_local_300x6_imbalanced",
+    "wine"
+  ],
+  "real_identities": [
+    "breast_cancer",
+    "digits",
+    "iris",
+    "wine"
+  ],
+  "synthetic_identities": [
+    "synthetic_42",
+    "synthetic_43",
+    "synthetic_44",
+    "synthetic_local_1200x20_four_class",
+    "synthetic_local_2500x60_three_class",
+    "synthetic_local_300x6_imbalanced"
+  ],
+  "algorithms": [
+    "Logistic Regression",
+    "Decision Tree",
+    "Random Forest",
+    "SVM",
+    "k-Nearest Neighbors"
+  ],
+  "records_per_seed": 50,
+  "model_random_states": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    11,
+    21,
+    42,
+    100
+  ],
+  "splits": "same leave-one-dataset-identity-out folds for every feature set and seed",
+  "random_baseline": "same precomputed 1000-draw baseline per identity for every run",
+  "constant_control": "D is B plus two zero-valued numeric columns; C/D predictions asserted identical",
+  "bootstrap_unit": "dataset identity after averaging over model seeds",
+  "bootstrap_replicates": 5000,
+  "baseline_seed_42_reproduced": true,
+  "model_artifacts_written": false,
+  "production_model_unchanged": true,
+  "full_dataset_profiles": true,
+  "notes": "Ten identities include six synthetic datasets from one generator family; intervals are descriptive.",
+  "feature_sets": {
+    "A": {
+      "name": "original9",
+      "features": [
+        "n_rows",
+        "n_features",
+        "n_numeric",
+        "n_categorical",
+        "missing_ratio",
+        "n_classes",
+        "imbalance_ratio",
+        "mean_feature_mean",
+        "mean_feature_std"
+      ]
+    },
+    "B": {
+      "name": "numeric15",
+      "features": [
+        "n_rows",
+        "n_features",
+        "n_numeric",
+        "n_categorical",
+        "missing_ratio",
+        "n_classes",
+        "imbalance_ratio",
+        "mean_feature_mean",
+        "mean_feature_std",
+        "normalized_class_entropy",
+        "log10_samples_per_feature",
+        "median_abs_numeric_skewness",
+        "median_abs_numeric_excess_kurtosis",
+        "mean_abs_numeric_correlation",
+        "fraction_numeric_pairs_abs_corr_ge_0_8"
+      ]
+    },
+    "C": {
+      "name": "full17",
+      "features": [
+        "n_rows",
+        "n_features",
+        "n_numeric",
+        "n_categorical",
+        "missing_ratio",
+        "n_classes",
+        "imbalance_ratio",
+        "mean_feature_mean",
+        "mean_feature_std",
+        "normalized_class_entropy",
+        "log10_samples_per_feature",
+        "median_abs_numeric_skewness",
+        "median_abs_numeric_excess_kurtosis",
+        "mean_abs_numeric_correlation",
+        "fraction_numeric_pairs_abs_corr_ge_0_8",
+        "mean_normalized_categorical_entropy",
+        "mean_categorical_cardinality"
+      ]
+    },
+    "D": {
+      "name": "numeric15_plus_two_constants",
+      "features": [
+        "n_rows",
+        "n_features",
+        "n_numeric",
+        "n_categorical",
+        "missing_ratio",
+        "n_classes",
+        "imbalance_ratio",
+        "mean_feature_mean",
+        "mean_feature_std",
+        "normalized_class_entropy",
+        "log10_samples_per_feature",
+        "median_abs_numeric_skewness",
+        "median_abs_numeric_excess_kurtosis",
+        "mean_abs_numeric_correlation",
+        "fraction_numeric_pairs_abs_corr_ge_0_8",
+        "__constant_control_one",
+        "__constant_control_two"
+      ]
+    }
+  }
+}

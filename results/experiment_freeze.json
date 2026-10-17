@@ -1,0 +1,60 @@
+{
+  "created_utc_date": "2026-10-14",
+  "input_path": "data/meta_dataset.csv",
+  "input_sha256": "a516ebd1c229e0586dd36692f4efd99d0da58ff629c6bd8d6b36bdee5f162682",
+  "provenance_path": "results/dataset_provenance.csv",
+  "provenance_sha256": "d8f6f0961bad62923287cb556167ab7f2c87818a03dc701410264a73c6793bf0",
+  "schema_columns": [
+    "dataset",
+    "n_rows",
+    "n_features",
+    "n_numeric",
+    "n_categorical",
+    "missing_ratio",
+    "n_classes",
+    "imbalance_ratio",
+    "mean_feature_mean",
+    "mean_feature_std",
+    "algorithm",
+    "macro_f1",
+    "training_seconds",
+    "wall_seconds"
+  ],
+  "eligible_dataset_identities": [
+    "breast_cancer",
+    "digits",
+    "iris",
+    "synthetic_42",
+    "synthetic_43",
+    "synthetic_44",
+    "synthetic_local_1200x20_four_class",
+    "synthetic_local_2500x60_three_class",
+    "synthetic_local_300x6_imbalanced",
+    "wine"
+  ],
+  "excluded_dataset_identities": [
+    "openml_11_balance_scale",
+    "openml_54_vehicle"
+  ],
+  "algorithms": [
+    "Decision Tree",
+    "Logistic Regression",
+    "Random Forest",
+    "SVM",
+    "k-Nearest Neighbors"
+  ],
+  "eligible_rows": 50,
+  "eligible_identity_count": 10,
+  "expected_algorithms_per_identity": 5,
+  "meta_schema_is_14_columns": true,
+  "method": "leave-one-dataset-identity-out; full-dataset profile features",
+  "notes": "Six of ten eligible identities are synthetic; results are not evidence of broad real-world generalization.",
+  "backup_directory": "/tmp/metastart-final-eval-before-20261014",
+  "run_status": "completed",
+  "output_sha256": {
+    "models/meta_model.joblib": "69ef3adf728f330573182994e70e6e891349f8a2887f434e9ac1f4f1a6cac55f",
+    "results/evaluation_report.csv": "8f56992235ab553029ebeb46ed6ffb071e1dcf1093424784f9bcae223af2121f",
+    "results/evaluation_summary.csv": "d2cbcd5e330f541fe81e873939974d523303d3931917024dc617f2944c0dfe69",
+    "results/regret_comparison.png": "9652186c2f4037a99c5cb5559706179b6d1c59ccb5adeecfb9a008006798df27"
+  }
+}

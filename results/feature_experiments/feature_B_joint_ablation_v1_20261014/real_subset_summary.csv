@@ -1,0 +1,13 @@
+configuration,metric,mean_across_real_identities,n_real_identities
+B,meta_regret,0.010451716709494055,4
+B,meta_top1_hit,0.275,4
+B,meta_top3_hit,0.775,4
+without_skewness_and_kurtosis,meta_regret,0.011782874877183765,4
+without_skewness_and_kurtosis,meta_top1_hit,0.25,4
+without_skewness_and_kurtosis,meta_top3_hit,0.65,4
+without_both_correlation_features,meta_regret,0.013453594839399587,4
+without_both_correlation_features,meta_top1_hit,0.0,4
+without_both_correlation_features,meta_top3_hit,0.75,4
+without_all_four,meta_regret,0.014827739645243681,4
+without_all_four,meta_top1_hit,0.05,4
+without_all_four,meta_top3_hit,0.65,4

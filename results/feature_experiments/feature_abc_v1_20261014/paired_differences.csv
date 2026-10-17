@@ -1,0 +1,7 @@
+contrast,metric,mean_difference,bootstrap_95ci_low,bootstrap_95ci_high,n_identities
+B-A,meta_regret,-0.002144025376132952,-0.005250427960029569,0.0,10
+B-A,meta_top1_hit,0.1,0.0,0.3,10
+B-A,meta_top3_hit,0.1,0.0,0.3,10
+C-A,meta_regret,-0.010107875104595921,-0.026997951769285523,-0.0009623772077636649,10
+C-A,meta_top1_hit,0.2,0.0,0.5,10
+C-A,meta_top3_hit,0.2,0.0,0.5,10
