@@ -30,3 +30,6 @@ htmlcov/
 
 # Large test datasets
 data/test_datasets/
+
+# Local OpenML cache
+data/openml_cache/
