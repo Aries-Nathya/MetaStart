@@ -1,0 +1,3 @@
+# Optional external frameworks; neither is required to start the existing app.
+flaml[automl]>=2.3
+autogluon.tabular>=1.6,<2; python_version >= "3.10" and python_version < "3.14"

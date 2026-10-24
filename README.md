@@ -24,6 +24,7 @@ The currently available environment used for verification is Python 3.14.7, NumP
 1. Upload a UTF-8 CSV with a header, one or more feature columns, and a classification target column.
 2. Select the target column and choose **Recommend, train and evaluate**.
 3. Review the dataset profile, the complete five-algorithm MetaStart ranking, training-only cross-validation results, and the selected model's held-out test metrics.
+4. Optionally expand **Manual baseline and hyperparameter searches** and run the untuned baseline, Grid Search, Random Search, and Optuna on the CV-selected classifier. These runs use only the training partition and the same deterministic CV sample (up to 5,000 rows); Random Search and Optuna each evaluate at most six trials. Their scores and elapsed search times are included in the comprehensive report downloads.
 
 The default upload safeguards support up to **750,000 rows**, **200 MiB per CSV**, **100 feature columns**, and **40 million table cells**. These defaults accommodate Forest CoverType (581,012 rows and 54 input features) within the configured cell budget. Limits are centralized in `src/app_workflow.py` and can be adjusted with `METASTART_MAX_UPLOAD_ROWS`, `METASTART_MAX_UPLOAD_MB`, `METASTART_MAX_UPLOAD_FEATURES`, and `METASTART_MAX_UPLOAD_CELLS`. The file-size limit must not exceed Streamlit's `server.maxUploadSize` in `.streamlit/config.toml`; both default to 200 MiB. Increase limits only when the machine has enough memory for the full training and test partitions and model fitting.
 
@@ -40,14 +41,27 @@ The app keeps three kinds of score distinct:
 - **Predicted Macro-F1** is the estimate from production meta-model A. It ranks all five supported algorithms and is not a measurement on the uploaded data.
 - **Training-partition CV Macro-F1** is measured for all five algorithms in stratified cross-validation on the training partition, using the same deterministic sample (at most 5,000 rows) and three folds. Selection uses mean CV Macro-F1, with candidate-specific failures reported. Full-data resource guards can prevent an otherwise CV-ranked candidate from being refitted; the workflow then tries the next CV-ranked candidate.
 - **Held-out test metrics** are computed once for the CV-selected model after it is fitted on the full training partition. The test scores are not used to choose the winner. They describe this reserved split and should not be used as an unbiased estimate after further model or workflow changes.
+- **Manual baseline and tuning scores** are additional training-only CV results for the CV-selected classifier. They do not replace the five-model ranking, reselect the deployed model, or use held-out test labels. They estimate classifier performance under different parameter configurations; they do not measure how accurately MetaStart predicts the best algorithm.
 
-The app provides three separate downloads:
+The app provides three existing downloads:
 
 - **Full recommendation ranking** (`metastart_recommendation_ranking.csv`): all five algorithms, rank 1–5, and their actual predicted Macro-F1 scores.
 - **Evaluation results** (`metastart_results.csv`): the selected algorithm, its training-only CV score, its one held-out test result, and training time.
 - **Selected trained model** (`metastart_selected_model.joblib`): the selected fitted preprocessing-and-classifier pipeline.
 
 The recommendation CSV is available when the ranking succeeds even if candidate evaluation later fails. The CV results, held-out result, and fitted model are separate from that ranking.
+
+The **Experiment results export** section provides the comprehensive results CSV, detailed per-class CV metrics CSV, JSON report, and ZIP bundle. After optional tuning runs finish, those records are included in the comprehensive CSV, JSON, and ZIP downloads. Missing metrics remain empty, and failed or skipped attempts retain their status.
+
+### Optional external AutoML comparison
+
+The expandable **External AutoML framework comparison** runs FLAML and AutoGluon independently on the same training and held-out split used by MetaStart. Each framework has a configurable per-framework wall-clock budget capped at 15 minutes (default 15 minutes), Macro-F1 CV scoring, two CPU workers, and a three-fold CV setup. The untouched test partition is passed to prediction only after each framework finishes model search; held-out metrics are reported as a separate stage. Model leaderboards, native CV metrics, parameters, runtime, and measured held-out results are appended to all experiment report downloads.
+
+These packages are optional and lazily imported. FLAML supports Python 3.10 and newer. AutoGluon Tabular 1.6 supports Python 3.10–3.13 on macOS CPU; the main app's Python 3.14 runtime reports AutoGluon as `unsupported_python`. To run both without replacing the app environment, create a separate Python 3.12 environment (for example, `brew install python@3.12`, then `/opt/homebrew/opt/python@3.12/bin/python3.12 -m venv .venv-automl312`) and install `requirements-external-automl.txt` there. AutoGluon's Tabular-only dependency is used to avoid its unrelated multimodal stack. Any model families unavailable in that optional install appear as `model_failed` rows with their actual failure details; successful framework runs and leaderboard scores remain separately reported. H2O AutoML was not selected because its current open-source release documents support through Python 3.11 and Java 17, while this environment has Python 3.14.7 and Java 26.
+
+### Deliberate data-leakage demonstration
+
+The **Deliberate data-leakage demonstration** is a separate opt-in section and runs only when its button is pressed. It uses scikit-learn's bundled Breast Cancer Wisconsin dataset, a stratified 75/25 split (seed 42), and the same fixed depth-4 Decision Tree for both rows. The valid baseline uses only original features and training-fitted preprocessing. The invalid run copies the target into a feature for training and held-out rows, directly exposing held-out answers to the model. That score is intentionally inflated and is **INVALID FOR REAL-WORLD PERFORMANCE — DELIBERATE LEAKAGE DEMONSTRATION**. It is never used in recommendation selection or model selection; it appears only as clearly marked `leakage` stage rows in the experiment report. The `invalid_for_real_world` status and explicit leak/invalid flags are retained in the report exports.
 
 ## Model and benchmark status
 
@@ -74,6 +88,10 @@ The production recommendation estimates are learned from a small and composition
 | `src/meta_learner.py` | Production meta-model construction and training from eligible records. |
 | `src/recommender.py` | Loads the saved model and returns the five-algorithm predicted ranking. |
 | `src/app_workflow.py` | Configurable upload safeguards, validation, deterministic CV sampling, per-candidate resource guards, and final test workflow. |
+| `src/advanced_experiments.py` | Bounded untuned baseline, Grid Search, Random Search, and Optuna CV runs on the selected classifier. |
+| `src/experiment_results.py` | Experiment ledger and CSV, JSON, and ZIP report builders. |
+| `src/external_automl.py` | Optional FLAML and AutoGluon runs, native leaderboards, and separate held-out scoring. |
+| `src/leakage_experiment.py` | Opt-in fixed-dataset leakage demonstration, isolated from the production recommender. |
 | `src/app_helpers.py` | Profile, feature-distribution, correlation, and evidence-led algorithm explanation tables. |
 | `app.py` | Streamlit upload, ranking, candidate selection, measured results, and downloads. |
 | `src/evaluation.py` | Leave-one-dataset-identity-out offline evaluation and summary artifacts. |
